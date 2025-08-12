@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Booking Enquiry</title>
+
+  <!-- EmailJS -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script type="text/javascript">
+    (function () {
+      emailjs.init({
+        publicKey: "yQ7ytmER3L9SOSPiG",
+      });
+    })();
+  </script>
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    body {
+      background: url('bg1.jpg') no-repeat center center/cover;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    h1 {
+      text-align: center;
+      color: white;
+      margin: 20px 0 10px;
+      text-shadow: 1px 1px 2px black;
+    }
+
+    .logo {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 100px;
+      z-index: 10;
+    }
+
+    .logo img {
+      width: 100%;
+      height: auto;
+    }
+
+    .content {
+      background-color: rgba(255, 255, 255, 0.85);
+      margin: 0 auto 40px;
+      padding: 20px;
+      max-width: 400px;
+      width: 90%;
+      border-radius: 10px;
+      box-shadow: 0 0 10px black;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-family: inherit;
+    }
+
+    textarea {
+      height: 80px;
+    }
+
+    label, .content br {
+      display: block;
+      margin-top: 10px;
+    }
+
+    button {
+      background-color: #333;
+      color: white;
+      border: none;
+      padding: 10px;
+      margin-top: 15px;
+      width: 100%;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #111;
+    }
+
+    select-group {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    footer {
+      background-color: #111;
+      color: white;
+      padding: 20px 10px;
+      text-align: center;
+      margin-top: auto;
+    }
+
+    .footer-logo {
+      width: 80px;
+      margin-bottom: 10px;
+    }
+
+    .social-icons a {
+      color: white;
+      margin: 0 10px;
+      font-size: 1.2em;
+      transition: color 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: #ccc;
+    }
+
+    .intro-text {
+      margin-top: 10px;
+      color: #aaa;
+      font-size: 14px;
+    }
+
+    .intro-text a {
+      color: #f0f0f0;
+      text-decoration: underline;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 600px) {
+      .logo {
+        position: static;
+        text-align: center;
+        margin: 0 auto 10px;
+      }
+
+      h1 {
+        font-size: 1.5rem;
+        margin-top: 60px;
+      }
+
+      .radio-group {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Logo -->
+  <div class="logo">
+    <img src="stories.png" alt="Logo" />
+  </div>
+
+  <!-- Heading -->
+  <h1>BOOKING ENQUIRY</h1>
+
+  <!-- Booking Form -->
+  <div class="content">
+    <form onsubmit="sendEmail(event)">
+      <input type="text" id="name" placeholder="Enter your name" required />
+      <input type="text" id="address" placeholder="Enter your address" required />
+      <input type="text" id="number" placeholder="Enter your number" required />
+      
+      <label for="date">Mark Your Date</label>
+      <input type="date" id="date" required />
+
+      <label>Event:</label>
+      <div class="select-group" >
+        <select name="" id="" required>event
+        <option value="">Mark Your Event</option>
+        <option>WEDDING SHOOT</option>
+        <option>BIRTHDAY SHOOT</option>
+        <option>AD SHOOT</option>
+        </select>
+      </div>
+
+      <textarea id="message" placeholder="Description" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <img src="stories.png" alt="Logo" class="footer-logo" />
+    <p>&copy; 2025 Capturing Stories. All rights reserved.</p>
+    <div class="social-icons">
+      <a href="https://www.instagram.com/capturing_stories._" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="mailto:your-email@saipusaif224.com?subject=Booking%20Inquiry"><i class="fas fa-envelope"></i></a>
+      <a href="https://wa.me/919526612182" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+
+  </footer>
+
+  <!-- JS -->
+  <script src="booking.js"></script>
+
+</body>
+</html>
